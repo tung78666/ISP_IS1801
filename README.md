@@ -7,3 +7,5 @@ Nguyễn Lan Ngọc
 Nguyễn Hà Mi
 Nguyễn Trung Đức
 Lê Thế Khải
+
+https://docs.google.com/document/d/1skkSzTja-TsnfIQ2p0MAKMROCQxexDRBVnxzzpk0NFc/edit
