@@ -34,26 +34,26 @@ INSERT INTO category (name, description) VALUES
 ('Beverages', 'Drinks and refreshments'),
 ('Snacks', 'Light and quick bites'),
 ('Desserts', 'Sweet treats'),
-('Main Course', 'Hearty and filling dishes'),
-('Appetizers', 'Starters to whet your appetite'),
+('Burgers', 'Various types of burgers'),
+('Sides', 'Side dishes and extras'),
 ('Salads', 'Healthy and fresh greens'),
 ('Breakfast', 'Morning meals'),
-('Lunch', 'Midday meals'),
-('Dinner', 'Evening meals'),
+('Combos', 'Meal combinations'),
+('Wraps', 'Rolled and stuffed'),
 ('Specials', 'Chef special dishes');
 
 -- Insert data into Food
 INSERT INTO food (name, description, price, img, category_id) VALUES 
 ('Coca Cola', 'Refreshing soft drink', 1.99, 'coke.jpg', 1),
-('Chips', 'Crispy and crunchy', 2.49, 'chips.jpg', 2),
-('Chocolate Cake', 'Rich and moist', 3.99, 'cake.jpg', 3),
-('Grilled Chicken', 'Juicy and tender', 8.99, 'chicken.jpg', 4),
-('Bruschetta', 'Toasted bread with toppings', 4.99, 'bruschetta.jpg', 5),
-('Caesar Salad', 'Classic salad with dressing', 6.49, 'salad.jpg', 6),
-('Pancakes', 'Fluffy and warm', 5.99, 'pancakes.jpg', 7),
-('Burger', 'Juicy beef patty', 7.49, 'burger.jpg', 8),
-('Steak', 'Grilled to perfection', 12.99, 'steak.jpg', 9),
-('Sushi', 'Fresh and delicious', 9.99, 'sushi.jpg', 10);
+('French Fries', 'Crispy and golden', 2.49, 'chips.jpg', 2),
+('Chocolate Shake', 'Rich and creamy', 3.99, 'cake.jpg', 3),
+('Cheeseburger', 'Juicy beef patty with cheese', 4.99, 'cheeseBurger.jpg', 4),
+('Chicken Nuggets', 'Bite-sized and crispy', 5.49, 'chickennug.jpg', 5),
+('Caesar Salad', 'Classic salad with dressing', 6.49, 'caesarsalad.jpg', 6),
+('Breakfast Burrito', 'Eggs, bacon, and cheese wrapped in a tortilla', 5.99, 'breakfastBurrito.jpg', 7),
+('Burger Combo', 'Cheeseburger, fries, and a drink', 8.49, 'burgerCombo.jpg', 8),
+('Chicken Wrap', 'Grilled chicken in a soft tortilla', 6.99, 'chickenWrap.jpg', 9),
+('Special Burger', 'Double patty with special sauce', 9.99, 'specialBurger.jpg', 10);
 
 -- Insert data into Orders
 INSERT INTO orders (user_id, order_date, address, total, status_id) VALUES 
