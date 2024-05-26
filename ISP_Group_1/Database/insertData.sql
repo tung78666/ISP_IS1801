@@ -1,33 +1,33 @@
 USE orderfood;
 -- Insert data into Role
-INSERT INTO role (name) VALUES 
-('ADMIN'), 
-('SELLER'), 
-('CUSTOMER');
+INSERT INTO role (id, name) VALUES 
+(0, 'ADMIN'), 
+(1, 'SELLER'), 
+(2, 'CUSTOMER');
 
 -- Insert data into Status
-INSERT INTO status (name) VALUES 
-('ACTIVE'), 
-('DISABLED'), 
-('INACTIVE'), 
-('PENDING'), 
-('RECEIVED'), 
-('COMPLETED'), 
-('REJECTED'), 
-('CANCEL');
+INSERT INTO status (id, name) VALUES 
+(0, 'ACTIVE'), 
+(1,'DISABLED'), 
+(2,'INACTIVE'), 
+(3,'PENDING'), 
+(4,'RECEIVED'), 
+(5,'COMPLETED'), 
+(6,'REJECTED'), 
+(7,'CANCEL');
 
 -- Insert data into User
 INSERT INTO user (username, password, email, phone, role_id, status_id) VALUES 
-('john_doe', 'password123', 'john@example.com', '1234567890', 1, 1),  -- ACTIVE
-('jane_smith', 'password456', 'jane@example.com', '0987654321', 2, 2),  -- DISABLED
-('bob_brown', 'password789', 'bob@example.com', '5555555555', 3, 3),  -- INACTIVE
-('alice_white', 'password321', 'alice@example.com', '4444444444', 1, 1),  -- ACTIVE
-('charlie_green', 'password654', 'charlie@example.com', '3333333333', 2, 1),  -- ACTIVE
-('eve_black', 'password987', 'eve@example.com', '2222222222', 3, 2),  -- DISABLED
-('frank_blue', 'password111', 'frank@example.com', '1111111111', 1, 3),  -- INACTIVE
-('grace_yellow', 'password222', 'grace@example.com', '6666666666', 2, 1),  -- ACTIVE
-('henry_pink', 'password333', 'henry@example.com', '7777777777', 3, 1),  -- ACTIVE
-('ivy_orange', 'password444', 'ivy@example.com', '8888888888', 1, 2);  -- DISABLED
+('john_doe', 'password123', 'john@example.com', '1234567890', 0, 0),  -- ACTIVE
+('jane_smith', 'password456', 'jane@example.com', '0987654321', 1, 1),  -- DISABLED
+('bob_brown', 'password789', 'bob@example.com', '5555555555', 2, 2),  -- INACTIVE
+('alice_white', 'password321', 'alice@example.com', '4444444444', 0, 0),  -- ACTIVE
+('charlie_green', 'password654', 'charlie@example.com', '3333333333', 1, 0),  -- ACTIVE
+('eve_black', 'password987', 'eve@example.com', '2222222222', 2, 1),  -- DISABLED
+('frank_blue', 'password111', 'frank@example.com', '1111111111', 0, 2),  -- INACTIVE
+('grace_yellow', 'password222', 'grace@example.com', '6666666666', 1, 0),  -- ACTIVE
+('henry_pink', 'password333', 'henry@example.com', '7777777777', 2, 0),  -- ACTIVE
+('ivy_orange', 'password444', 'ivy@example.com', '8888888888', 0, 1);  -- DISABLED
 
 -- Insert data into Category
 INSERT INTO category (name, description) VALUES 
@@ -44,16 +44,16 @@ INSERT INTO category (name, description) VALUES
 
 -- Insert data into Food
 INSERT INTO food (name, description, price, img, category_id) VALUES 
-('Coca Cola', 'Refreshing soft drink', 1.99, 'coke.jpg', 1),
-('French Fries', 'Crispy and golden', 2.49, 'chips.jpg', 2),
-('Chocolate Shake', 'Rich and creamy', 3.99, 'cake.jpg', 3),
-('Cheeseburger', 'Juicy beef patty with cheese', 4.99, 'cheeseBurger.jpg', 4),
-('Chicken Nuggets', 'Bite-sized and crispy', 5.49, 'chickennug.jpg', 5),
-('Caesar Salad', 'Classic salad with dressing', 6.49, 'caesarsalad.jpg', 6),
-('Breakfast Burrito', 'Eggs, bacon, and cheese wrapped in a tortilla', 5.99, 'breakfastBurrito.jpg', 7),
-('Burger Combo', 'Cheeseburger, fries, and a drink', 8.49, 'burgerCombo.jpg', 8),
-('Chicken Wrap', 'Grilled chicken in a soft tortilla', 6.99, 'chickenWrap.jpg', 9),
-('Special Burger', 'Double patty with special sauce', 9.99, 'specialBurger.jpg', 10);
+('Coca Cola', 'Refreshing soft drink', 1.99, 'img4DB/coke.jpg', 1),
+('French Fries', 'Crispy and golden', 2.49, 'img4DB/chips.jpg', 2),
+('Chocolate Shake', 'Rich and creamy', 3.99, 'img4DB/cake.jpg', 3),
+('Cheeseburger', 'Juicy beef patty with cheese', 4.99, 'img4DB/cheeseBurger.jpg', 4),
+('Chicken Nuggets', 'Bite-sized and crispy', 5.49, 'img4DB/chickennug.jpg', 5),
+('Caesar Salad', 'Classic salad with dressing', 6.49, 'img4DB/caesarsalad.jpg', 6),
+('Breakfast Burrito', 'Eggs, bacon, and cheese wrapped in a tortilla', 5.99, 'img4DB/breakfastBurrito.jpg', 7),
+('Burger Combo', 'Cheeseburger, fries, and a drink', 8.49, 'img4DB/burgerCombo.jpg', 8),
+('Chicken Wrap', 'Grilled chicken in a soft tortilla', 6.99, 'img4DB/chickenWrap.jpg', 9),
+('Special Burger', 'Double patty with special sauce', 9.99, 'img4DB/specialBurger.jpg', 10);
 
 -- Insert data into Orders
 INSERT INTO orders (user_id, order_date, address, total, status_id) VALUES 

@@ -4,13 +4,13 @@ USE orderfood;
 
 -- Tạo bảng Role
 CREATE TABLE role (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY,
     name VARCHAR(10)
 );
 
 -- Tạo bảng Status
 CREATE TABLE status (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY,
     name VARCHAR(10)
 );
 
