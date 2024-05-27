@@ -1,8 +1,8 @@
 USE orderfood;
 -- Insert data into Role
 INSERT INTO role (id, name) VALUES 
-(0, 'ADMIN'), 
-(1, 'SELLER'), 
+(0, 'ADMIN'),
+(1, 'MANAGER'), 
 (2, 'CUSTOMER');
 
 -- Insert data into Status
@@ -57,16 +57,16 @@ INSERT INTO food (name, description, price, img, category_id) VALUES
 
 -- Insert data into Orders
 INSERT INTO orders (user_id, order_date, address, total, status_id) VALUES 
-(1, '2023-05-01 10:00:00', '123 Main St', 15.99, 4),  -- PENDING
-(2, '2023-05-02 11:00:00', '456 Oak St', 8.99, 5),  -- RECEIVED
-(3, '2023-05-03 12:00:00', '789 Pine St', 20.49, 6),  -- COMPLETED
-(4, '2023-05-04 13:00:00', '101 Maple St', 25.99, 7),  -- REJECTED
-(5, '2023-05-05 14:00:00', '202 Birch St', 30.49, 8),  -- CANCEL
-(6, '2023-05-06 15:00:00', '303 Cedar St', 35.99, 4),  -- PENDING
-(7, '2023-05-07 16:00:00', '404 Elm St', 40.49, 5),  -- RECEIVED
-(8, '2023-05-08 17:00:00', '505 Spruce St', 45.99, 6),  -- COMPLETED
-(9, '2023-05-09 18:00:00', '606 Walnut St', 50.49, 7),  -- REJECTED
-(10, '2023-05-10 19:00:00', '707 Chestnut St', 55.99, 8);  -- CANCEL
+(1, '2023-05-01 10:00:00', '123 Main St', 15.99, 3),  -- PENDING
+(2, '2023-05-02 11:00:00', '456 Oak St', 8.99, 4),  -- RECEIVED
+(3, '2023-05-03 12:00:00', '789 Pine St', 20.49, 5),  -- COMPLETED
+(4, '2023-05-04 13:00:00', '101 Maple St', 25.99, 6),  -- REJECTED
+(5, '2023-05-05 14:00:00', '202 Birch St', 30.49, 7),  -- CANCEL
+(6, '2023-05-06 15:00:00', '303 Cedar St', 35.99, 3),  -- PENDING
+(7, '2023-05-07 16:00:00', '404 Elm St', 40.49, 4),  -- RECEIVED
+(8, '2023-05-08 17:00:00', '505 Spruce St', 45.99, 5),  -- COMPLETED
+(9, '2023-05-09 18:00:00', '606 Walnut St', 50.49, 6),  -- REJECTED
+(10, '2023-05-10 19:00:00', '707 Chestnut St', 55.99, 7);  -- CANCEL
 
 -- Insert data into OrderDetail
 INSERT INTO orderdetail (order_id, food_id, quantity) VALUES 
