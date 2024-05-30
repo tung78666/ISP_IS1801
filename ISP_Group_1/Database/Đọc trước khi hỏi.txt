@@ -1,0 +1,2 @@
+created.spl là file gốc của em dùng để chạy code , để sửa code Front end hoặc logic 
+dataOrderFood.txt , OrderFoodDB.txt là file đã qua chatGPT và cái này chưa cho chạy SSMS và em cần chị Mi fix và so sánh file này với file gốc

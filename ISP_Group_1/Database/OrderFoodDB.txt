@@ -1,0 +1,105 @@
+
+create database ORDER_FOOD_SYSTEM
+USE ORDER_FOOD_SYSTEM;
+
+-- create table FoodGenres
+CREATE TABLE FoodGenres(
+  GID CHAR(50) NOT NULL PRIMARY KEY, 
+  GName NVARCHAR(200) NOT NULL
+);
+
+-- create table Restaurant
+CREATE TABLE Restaurant (
+  PID CHAR(50) NOT NULL PRIMARY KEY,
+  PName NVARCHAR(200) NOT NULL,
+  PAddress NVARCHAR(200) NOT NULL,
+  PEmail CHAR(100),
+  PAgent NVARCHAR(200)
+);
+
+-- create table MenuItems
+CREATE TABLE MenuItems(
+  ItemID CHAR(50) NOT NULL PRIMARY KEY,
+  ItemName NVARCHAR(100) NOT NULL,
+  ChefName NVARCHAR(100),
+  PID CHAR(50) NOT NULL,
+  GID CHAR(50) NOT NULL,
+  NumREPub INT,
+  Quantity INT NOT NULL,
+  ImagePath NVARCHAR(200),
+  RecipePath NVARCHAR(200),
+  NumOfRecipeBooks INT,
+  NumOfPhysicalItems INT,
+  Description NVARCHAR(1000),
+  CONSTRAINT fk_MenuItems_FoodGenres FOREIGN KEY(GID) REFERENCES FoodGenres(GID),
+  CONSTRAINT fk_MenuItems_Restaurant FOREIGN KEY(PID) REFERENCES Restaurant(PID)
+);
+
+-- create table Admin
+CREATE TABLE Admin(
+  AdID CHAR(50) NOT NULL PRIMARY KEY CHECK (AdID LIKE 'FU[0-9][0-9][0-9][0-9][0-9][0-9]'), 
+  AdName NVARCHAR(100) NOT NULL,
+  AdEmail CHAR(100),
+  [Shift] DATE NOT NULL,
+  AdPassword CHAR(50) NOT NULL
+);
+
+-- create table ServiceUser
+CREATE TABLE ServiceUser(
+  UserID CHAR(50) NOT NULL PRIMARY KEY CHECK (UserID LIKE '[A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9]'),
+  UserName NVARCHAR(100) NOT NULL,
+  UserEmail CHAR(100),
+  UserPassword CHAR(50) NOT NULL
+);
+
+-- create table Order
+CREATE TABLE Order(
+  OrderID CHAR(50) NOT NULL PRIMARY KEY,
+  AdID CHAR(50) NOT NULL,
+  UserID CHAR(50) NOT NULL,
+  OrderDate DATE NOT NULL,
+  isAccepted INT NOT NULL,
+  CONSTRAINT fk_Order_ServiceUser FOREIGN KEY(UserID) REFERENCES ServiceUser(UserID),
+  CONSTRAINT fk_Order_Admin FOREIGN KEY(AdID) REFERENCES Admin(AdID)
+);
+
+-- create table OrderItems_details
+CREATE TABLE OrderItems_details(
+  OrderID CHAR(50) NOT NULL,
+  ItemID CHAR(50) NOT NULL,
+  Quantity INT NOT NULL,
+  DeliveryDate DATE NOT NULL,
+  CONSTRAINT fk_OrderItems_details_Order FOREIGN KEY(OrderID) REFERENCES Order(OrderID),
+  CONSTRAINT fk_OrderItems_details_MenuItems FOREIGN KEY(ItemID) REFERENCES MenuItems(ItemID),
+  PRIMARY KEY(OrderID, ItemID)
+);
+
+-- create table Compensation
+CREATE TABLE Compensation(
+  OrderID CHAR(50) NOT NULL,
+  Reason NVARCHAR(200) NOT NULL,
+  Penalty_Fine INT,
+  CONSTRAINT fk_Compensation_Order FOREIGN KEY(OrderID) REFERENCES Order(OrderID)
+);
+
+-- create table FoodReturn
+CREATE TABLE FoodReturn(
+  OrderID CHAR(50) NOT NULL,
+  ReturnDate DATE NOT NULL,
+  CONSTRAINT fk_FoodReturn_Order FOREIGN KEY(OrderID) REFERENCES Order(OrderID)
+);
+
+-- create table Recommend_Order
+CREATE TABLE Recommend_Order (
+  RecommendID CHAR(50) NOT NULL PRIMARY KEY,
+  UserEmail CHAR(100) NOT NULL,
+  ISBN CHAR(13),
+  ItemName NVARCHAR(100) NOT NULL,
+  ChefName NVARCHAR(100) NOT NULL,
+  PName NVARCHAR(200),
+  RequestTime INT NOT NULL,
+  RequestPurpose NVARCHAR(1000) NOT NULL,
+  ItemLink NVARCHAR(1000),
+  MentorProposal NVARCHAR(1000),
+  Feedback NVARCHAR(1000)
+);
